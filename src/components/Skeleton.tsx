@@ -7,7 +7,7 @@ const Skeleton = ({ type = 'board' }: SkeletonProps) => {
 
   if (isBoard) {
     return (
-      <div className="grid grid-cols-4 items-center justify-center gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-center justify-center gap-5">
         {Array.from({ length: 4 }).map((_, i) => (
           <div
             key={i}
