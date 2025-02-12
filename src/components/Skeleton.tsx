@@ -1,16 +1,33 @@
-import clsx from 'clsx';
-
-interface Props {
-  className?: string;
+interface SkeletonProps {
+  type?: 'board' | 'assets';
 }
 
-const Skeleton = ({ className = '' }: Props) => {
-  const classNames = clsx(
-    'rounded-lg bg-light-gray shadow-sm animate-pulse',
-    className
-  );
+const Skeleton = ({ type = 'board' }: SkeletonProps) => {
+  const isBoard = type === 'board';
 
-  return <div className={classNames} />;
+  if (isBoard) {
+    return (
+      <div className="grid grid-cols-4 items-center justify-center gap-5">
+        {Array.from({ length: 4 }).map((_, i) => (
+          <div
+            key={i}
+            className={`w-72 h-40 rounded-md bg-gray-200 animate-pulse`}
+          />
+        ))}
+      </div>
+    );
+  }
+
+  return (
+    <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
+      {Array.from({ length: 16 }).map((_, i) => (
+        <div
+          key={i}
+          className={`w-full h-72 rounded-md bg-gray-200 animate-pulse break-inside-void mb-8`}
+        />
+      ))}
+    </div>
+  );
 };
 
 export default Skeleton;

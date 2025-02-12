@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['air-prod.imgix.net'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'air-prod.imgix.net',
+      },
+    ],
   },
 };
 

@@ -1,10 +1,9 @@
-'use client';
-
-import Skeleton from '@/components/Skeleton';
 import { lazy, Suspense } from 'react';
 
-const Board = lazy(() => import('@/components/Board'));
-const Assets = lazy(() => import('@/components/Assets'));
+import Skeleton from '@/components/Skeleton';
+
+const Board = lazy(() => import('@/features/gallery/components/Board'));
+const Assets = lazy(() => import('@/features/gallery/components/Assets'));
 
 const HomeGallery = () => {
   return (
@@ -13,7 +12,7 @@ const HomeGallery = () => {
         <Board />
       </Suspense>
 
-      <Suspense fallback={<Skeleton />}>
+      <Suspense fallback={<Skeleton type="assets" />}>
         <Assets />
       </Suspense>
     </div>

@@ -1,5 +1,3 @@
-import React, { useState } from 'react';
-
 interface TitleProps {
   showIcon?: boolean;
   title: string;
@@ -9,12 +7,14 @@ interface TitleProps {
 
 const Title = ({ showIcon = true, title, count = 0, onClick }: TitleProps) => {
   return (
-    <h3
-      className="text-lg font-semibold inline-flex items-center gap-2 mb-2 uppercase cursor-pointer"
-      onClick={onClick}
-    >
-      {title} {`(${count})`} {showIcon ? '▼' : '▶'}
-    </h3>
+    <div className="pb-3">
+      <p
+        className="text-sm font-bold text-gray-500 inline-flex items-center gap-2 uppercase cursor-pointer rounded-md p-2 transition-all hover:bg-gray-100"
+        onClick={onClick}
+      >
+        {title} {`(${count})`} {showIcon ? '▼' : '▶'}
+      </p>
+    </div>
   );
 };
 
